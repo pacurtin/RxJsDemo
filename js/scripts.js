@@ -46,10 +46,23 @@ buttonTwoClickCountStream.subscribe(function(received) {
 });
 
 // Example of merging two counters
-var sumCounter = document.querySelector('#button-count-sum');
-var sumStream = Rx.Observable.merge(
+var mergeDisplay = document.querySelector('#button-one-two-merge');
+var mergeStream = Rx.Observable.merge(
     buttonOneClickCountStream, buttonTwoClickCountStream
 );
+
+mergeStream.subscribe(function(received) {
+    mergeDisplay.innerText=received;
+});
+
+// Summing the two counters
+var sumCounter = document.querySelector('#button-count-sum');
+var sumStream = buttonOneClickCountStream
+    .combineLatest(buttonTwoClickCountStream,
+        function(a, b) {
+            return a+b;
+        }
+    );
 
 sumStream.subscribe(function(received) {
     sumCounter.innerText=received;
