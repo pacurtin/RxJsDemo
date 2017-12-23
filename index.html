@@ -3,14 +3,26 @@
   <head>
 	<title>RxJs Tutorial</title>
 	<meta name="description" content="Time for me to learn reactive programming">
+	<link href="css/styles.css" type="text/css" rel="stylesheet"/>
   </head>
   <body>
 
   	<h1>RxJs Test</h1>
 	<p>On a ten hour flight so going to try to learn some of the basics of reactive programming.</p>
 
-	<div id="display-div">Nothing recieved from stream yet.</div>
-	<button>Click to trigger stream</button>
+	<h2>Subscriber to a one off string stream</h2>
+	<div id="hello-world-div">Nothing recieved from stream yet.</div>
+	<br/>
+
+	<h2>Click event streams and a merge</h2>
+	<b>Button One Click Count:</b>
+	<div id="button-one-counter">Nothing recieved from stream yet.</div>
+	<b>Button Two Click Count:</b>
+	<div id="button-two-counter">Nothing recieved from stream yet.</div>
+	<b>Button One Plus Button Two Click Count:</b>
+	<div id="button-count-sum">Nothing recieved from stream yet.</div>
+	<button id="button-one">Click to trigger stream</button>
+	<button id="button-two">Click to trigger stream</button>
 
 	<script src="libs/Rx.js"></script>
 	<script src="libs/jquery-3.2.1.js"></script>
